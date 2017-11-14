@@ -20,7 +20,7 @@
     <select name="Gender">
 	<option value="">Select...</option>
     <option value="Male">Male</option>
-    <option value="Female">Girl</option>
+    <option value="Female">Female</option>
     </select>
 	</p>
     <p>Races
