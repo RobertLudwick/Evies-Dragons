@@ -7,33 +7,73 @@
   </form>
 
 <?php
-if(isset($_POST['submit'])) {
-  echo 'Query: ', htmlspecialchars($_POST['something']);
+
+// if(isset($_POST['submit'])) {
+//   echo 'Query: ', htmlspecialchars($_POST['something']);
+// }
+
+
+// $user = 'root';
+// $password = 'root';
+// $db = 'Evies';
+// $socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
+// 
+// $link = mysql_connect(
+//    $socket, 
+//    $user, 
+//    $password
+// );
+// $db_selected = mysql_select_db(
+//    $db, 
+//    $link
+// );
+
+// $user = 'root';
+// $password = 'root';
+// $db = 'Evies';
+// $host = 'localhost';
+// $port = 8889;
+// 
+// $link = mysql_connect(
+//    "$host:$port", 
+//    $user, 
+//    $password
+// );
+// $db_selected = mysql_select_db(
+//    $db, 
+//    $link
+// );
+
+// $user = 'root';
+// $password = 'root';
+// $db = 'Evies';
+// $host = 'localhost';
+// $port = 8889;
+// 
+// $link = mysqli_init();
+// $success = mysqli_real_connect(
+//    $link, 
+//    $host, 
+//    $user, 
+//    $password, 
+//    $db,
+//    $port
+// );
+
+$sqlHost = 'localhost';
+$sqlUser = 'root';
+$sqlPass = 'root';
+$dbName = 'Evies';
+
+$mysqli = new mysqli($sqlHost, $sqlUser, $sqlPass, $dbName);
+
+if (mysqli_connect_error()) {
+    die('Connect Error ('.mysqli_connect_errno().') '.mysqli_connect_error());
 }
 
+echo 'Connected successfully.';
 
-$user = 'root';
-$password = 'root';
-$db = 'Evies';
-$host = 'localhost';
-$port = 8889;
-
-$link = mysql_connect(
-   "$host:$port", 
-   $user, 
-   $password
-);
-$db_selected = mysql_select_db(
-   $db, 
-   $link
-);
-
-if($db->connect_errno){
-    printf("Connect failed: %s\n", $db->connect_error);
-    exit();
-}
-
-$result = $db->query("SELECT * FROM races;")
+$result = $mysqli->query("SELECT * FROM Skills;")
     or trigger_error($db->error);
 //var_dump($result);?>
 <TABLE>
@@ -43,10 +83,12 @@ $result = $db->query("SELECT * FROM races;")
 </TR>
 <?php
 $array = array('skill_name', 'skill_descript');
+
 while($row = $result->fetch_array()) {
     // Less DRY ways to display for testing
     //echo var_dump($row);
-    //echo $row['film_id'].": ".$row['title']." (".$row['release_year'].", ".$row['rating'].")";
+    echo "working";
+    echo $row['skill_name'].": ".$row['skill_descript'];
     //echo "<BR>";
     echo "<TR>";
     foreach($array as $field) {
