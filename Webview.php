@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
 
 $user = 'root';
 $password = 'root';
-$db = 'inventory';
+$db = 'Evies';
 $host = 'localhost';
 $port = 8889;
 
