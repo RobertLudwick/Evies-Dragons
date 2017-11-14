@@ -12,20 +12,28 @@ if(isset($_POST['submit'])) {
 }
 
 
-$sqlHost = 'localhost';
-$sqlUser = 'root';
-$sqlPass = 'new-password';
-$dbName = 'Evies';
-$userInput = htmlspecialchars($_POST['something']);
-$db =  new mysqli($sqlHost, $sqlUser, $sqlPass, $dbName) ;
+$user = 'root';
+$password = 'root';
+$db = 'inventory';
+$host = 'localhost';
+$port = 8889;
+
+$link = mysql_connect(
+   "$host:$port", 
+   $user, 
+   $password
+);
+$db_selected = mysql_select_db(
+   $db, 
+   $link
+);
 
 if($db->connect_errno){
     printf("Connect failed: %s\n", $db->connect_error);
     exit();
 }
 
-$result = $db->query("SELECT film.film_id, film.title, film.release_year, film.rating, category.name FROM film INNER JOIN film_category ON film.film_id = film_category.film_id INNER JOIN category on film_category.category_id = category.category_id WHERE film.title LIKE '%$userInput' OR film.title LIKE '$userInput%' ORDER BY film.title;
-")
+$result = $db->query("SELECT * FROM races;")
     or trigger_error($db->error);
 //var_dump($result);?>
 <TABLE>
