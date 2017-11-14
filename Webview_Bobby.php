@@ -89,11 +89,9 @@
 
 <?php
 if(isset($_POST['submit'])) {
-  echo 'You entered: ', htmlspecialchars($_POST['something']);
-  echo nl2br("\n\n");
-  echo 'This: ', $_POST['Test'];
-  echo nl2br("\n\n");
-  echo $_POST['formTest'];
+  $name = htmlspecialchars($_POST['Races']);
+  echo $_POST['Races'];
+  echo $_POST['Variants'];
 }
 
 
