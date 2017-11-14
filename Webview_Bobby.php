@@ -16,6 +16,13 @@
 	<p>Name	
 	<input type="name" name="something" value="" />
 	</p>
+	<p>Gender
+    <select name="Gender">
+	<option value="">Select...</option>
+    <option value="Boy">Boy</option>
+    <option value="Girl">Girl</option>
+    </select>
+	</p>
     <p>Races
     <select name="Races">
     	<option value="">Race</option>
@@ -46,11 +53,12 @@
 	<select name="Classes">
 		<option value="">Class</option>
 	    <?php
-			$result = $mysqli->query("SELECT class_name FROM class;")
+			//$result = $mysqli->query("SELECT class_name FROM class;")
+			$result = $mysqli->query("SELECT class_name FROM levels;")
 	    		or trigger_error($db->error);
-// 	    	while($row = $result->fetch_array()) {
-// 		 		echo "<option value='".$row[0]."'>'".$row[0]."'</option>";
-// 	    	}
+	    	while($row = $result->fetch_array()) {
+ 		 		echo "<option value='".$row[0]."'>'".$row[0]."'</option>";
+ 	    	}
 		?>
 	</select>
 	</p>
@@ -89,8 +97,9 @@
 
 <?php
 if(isset($_POST['submit'])) {
-    $name = htmlspecialchars($_POST['Races']);
+    $name = htmlspecialchars($_POST['something']);
     $races = $_POST['Races'];
+    $gender = $_POST['Gender'];
     $variants = $_POST['Variants'];
 	$classes = $_POST['Classes'];
     $backgrounds = $_POST['Backgrounds'];
@@ -101,7 +110,10 @@ if(isset($_POST['submit'])) {
     $wisdom = $_POST['Wisdom'];
     $charisma = $_POST['Charisma'];
     
-    $mysqli->query("INSERT INTO players VALUES (400, 'Pontius', 'Bobby', 'Female', 'Elf', 'Wood Elf', 'Paladin', 'back', 28, 28, 18, 15, 4, 7, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');")
+//     echo $classes;
+    
+    
+    $mysqli->query("INSERT INTO players VALUES (500, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', 8, '1d8', 1, 1, 'somewhat skilled');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
