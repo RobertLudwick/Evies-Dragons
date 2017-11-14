@@ -93,6 +93,5 @@
 
 $db->close();
  ?>
-</TABLE>
 </body>
 </html>
