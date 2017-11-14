@@ -38,14 +38,11 @@ $result = $db->query("SELECT * FROM races;")
 //var_dump($result);?>
 <TABLE>
 <TR>
-<TH>Film Id</TH>
-<TH>Title</TH>
-<TH>Release<BR>Year</TH>
-<TH>Rating</TH>
-<TH>Genre</TH>
+<TH>skill_name</TH>
+<TH>skill_descript</TH>
 </TR>
 <?php
-$array = array('film_id', 'title', 'release_year', 'rating', 'name');
+$array = array('skill_name', 'skill_descript');
 while($row = $result->fetch_array()) {
     // Less DRY ways to display for testing
     //echo var_dump($row);
