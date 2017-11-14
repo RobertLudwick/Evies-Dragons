@@ -67,28 +67,34 @@
 	</select>
 	</p>
 	<p>Strength	
-	<input type="Strength" name="something" value="" />
+	<input type="name" name="Strength" value="" />
 	</p>
 	<p>Dexterity	
-	<input type="Dexterity" name="something" value="" />
+	<input type="name" name="Dexterity" value="" />
 	</p>
 	<p>Constitution	
-	<input type="Constitution" name="something" value="" />
+	<input type="name" name="Constitution" value="" />
 	</p>
 	<p>Intelligence	
-	<input type="Intelligence" name="something" value="" />
+	<input type="name" name="Intelligence" value="" />
 	</p>
 	<p>Wisdom	
-	<input type="Wisdom" name="something" value="" />
+	<input type="name" name="Wisdom" value="" />
 	</p>
 	<p>Charisma	
-	<input type="Charisma" name="something" value="" />
+	<input type="name" name="Charisma" value="" />
 	</p>
     <input type="submit" name="submit" />
   </form>
 
 <?php
-
+if(isset($_POST['submit'])) {
+  echo 'You entered: ', htmlspecialchars($_POST['something']);
+  echo nl2br("\n\n");
+  echo 'This: ', $_POST['Test'];
+  echo nl2br("\n\n");
+  echo $_POST['formTest'];
+}
 
 
 $db->close();
