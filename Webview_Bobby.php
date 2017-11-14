@@ -20,7 +20,7 @@
     <select name="Gender">
 	<option value="">Select...</option>
     <option value="Male">Male</option>
-    <option value="Female">Female</option>
+    <option value="Female">Girl</option>
     </select>
 	</p>
     <p>Races
@@ -68,9 +68,9 @@
 	    <?php
 			$result = $mysqli->query("SELECT background_name FROM Backgrounds;")
 	    		or trigger_error($db->error);
-// 	    	while($row = $result->fetch_array()) {
-// 		 		echo "<option value='".$row[0]."'>'".$row[0]."'</option>";
-// 	    	}
+ 	    	while($row = $result->fetch_array()) {
+ 		 		echo "<option value='".$row[0]."'>'".$row[0]."'</option>";
+ 	    	}
 		?>
 	</select>
 	</p>
