@@ -19,8 +19,8 @@
 	<p>Gender
     <select name="Gender">
 	<option value="">Select...</option>
-    <option value="Boy">Boy</option>
-    <option value="Girl">Girl</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
     </select>
 	</p>
     <p>Races
