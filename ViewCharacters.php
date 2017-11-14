@@ -51,7 +51,7 @@ while($row = $result->fetch_array()) {
  ?>
 
 </TABLE>
-<a href="Webview.php"> Create a Character</a>
+<a href="Webview_Bobby.php"> Create a Character</a>
 </body>
 <?php
 $db->close();
