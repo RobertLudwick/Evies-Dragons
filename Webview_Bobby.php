@@ -89,9 +89,23 @@
 
 <?php
 if(isset($_POST['submit'])) {
-  $name = htmlspecialchars($_POST['Races']);
-  echo $_POST['Races'];
-  echo $_POST['Variants'];
+    $name = htmlspecialchars($_POST['Races']);
+    $races = $_POST['Races'];
+    $variants = $_POST['Variants'];
+	$classes = $_POST['Classes'];
+    $backgrounds = $_POST['Backgrounds'];
+    $strength = $_POST['Strength'];
+    $dexterity = $_POST['Dexterity'];
+    $constitution = $_POST['Constitution'];
+    $intelligence = $_POST['Intelligence'];
+    $wisdom = $_POST['Wisdom'];
+    $charisma = $_POST['Charisma'];
+    
+    $mysqli->query("INSERT INTO players VALUES (400, 'Pontius', 'Bobby', 'Female', 'Elf', 'Wood Elf', 'Paladin', 'back', 28, 28, 18, 15, 4, 7, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');")
+	    		or trigger_error($db->error);
+    
+    //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
+    
 }
 
 
