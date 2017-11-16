@@ -110,10 +110,15 @@ if(isset($_POST['submit'])) {
     $wisdom = $_POST['Wisdom'];
     $charisma = $_POST['Charisma'];
     
-//     echo $classes;
+    $id = $mysqli->query("SELECT COUNT(*) FROM players;")
+	    		or trigger_error($db->error);
     
     
-    $mysqli->query("INSERT INTO players VALUES (500, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', 8, '1d8', 1, 1, 'somewhat skilled');")
+    while($row = $id->fetch_array()) {
+		$result = $row[0];
+	}
+    
+    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', 8, '1d8', 1, 1, 'somewhat skilled');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
