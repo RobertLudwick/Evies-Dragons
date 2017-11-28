@@ -12,10 +12,29 @@
 </select>
 <input type="submit" value="submit">
 <?php
+switch(isset($_POST))
+{
+    case isset($_POST["D4"]):
+      $d4 = rand(1,4);
+      echo "You rolled a " , $d4 , "";
+    break;
+    case isset($_POST['D6']):
+      $d6 = rand(1,6);
+      echo "You rolled a " , $d6 , "";
+    break;
+    case isset($_POST['D10']):
+      $d10 = rand(1,10);
+      echo "You rolled a " , $d10 , "";
+    break;
+    case isset($_POST['D12']):
+      $d12 = rand(1,12);
+      echo "You rolled a " , $d12 , "";
+    break;
+    case isset($_POST['D20']):
+      $d20 = rand(1,20);
+      echo "You rolled a " , $d20 , "";
+    break;
 
-if (isset($_POST["submit"])){ 
-  echo "done";
-  //echo "YOu selected" , $_GET["digdice"] , "";
 }
 
 /*do {
