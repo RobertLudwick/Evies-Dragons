@@ -1,7 +1,7 @@
 <html>
 <head><title>Digital Dice</title></head>
 <body>
-<form action="" method="post">
+<form method="post" action="">
 <select name="digdice">
     <option value="">Selecd Dice Type</option>
         <option value="D4">D4</option>
@@ -10,31 +10,36 @@
 		<option value="D12">D12</option>
 		<option value="D20">D20</option>
 </select>
-<input type="submit" value="submit">
+    <input type="submit" name="submit" />
+    </form>
 <?php
-switch(isset($_POST))
-{
-    case isset($_POST["D4"]):
-      $d4 = rand(1,4);
-      echo "You rolled a " , $d4 , "";
-    break;
-    case isset($_POST['D6']):
-      $d6 = rand(1,6);
-      echo "You rolled a " , $d6 , "";
-    break;
-    case isset($_POST['D10']):
-      $d10 = rand(1,10);
-      echo "You rolled a " , $d10 , "";
-    break;
-    case isset($_POST['D12']):
-      $d12 = rand(1,12);
-      echo "You rolled a " , $d12 , "";
-    break;
-    case isset($_POST['D20']):
-      $d20 = rand(1,20);
-      echo "You rolled a " , $d20 , "";
-    break;
+if(isset($_POST['submit'])) {
+    $d4 = $_POST['D4'];
+    echo "you've selected", $d4 , "";
 
+//     $d4 = $_POST[''];
+//     $races = $_POST['Races'];
+//     $gender = $_POST['Gender'];
+//     $variants = $_POST['Variants'];
+
+
+
+//       $d6 = rand(1,6);
+//       echo "You rolled a " , $d6 , "";
+//     break;
+//     case isset($_POST['D10']):
+//       $d10 = rand(1,10);
+//       echo "You rolled a " , $d10 , "";
+//     break;
+//     case isset($_POST['D12']):
+//       $d12 = rand(1,12);
+//       echo "You rolled a " , $d12 , "";
+//     break;
+//     case isset($_POST['D20']):
+//       $d20 = rand(1,20);
+//       echo "You rolled a " , $d20 , "";
+//     break;
+  echo "hi";
 }
 
 /*do {
