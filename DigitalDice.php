@@ -1,7 +1,7 @@
 <html>
 <head><title>Digital Dice</title></head>
 <body>
-<form method="post" action="">
+<!-- <form method="post" action="">
 <select name="digdice">
     <option value="">Selecd Dice Type</option>
         <option value="D4">D4</option>
@@ -11,11 +11,16 @@
 		<option value="D20">D20</option>
 </select>
     <input type="submit" name="submit" />
-    </form>
+    </form> -->
+<form method="post" action="">
+  <input type="radio" name="gender" value="male"> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other
+    <input type="submit" name="submit" />
+</form>
 <?php
 if(isset($_POST['submit'])) {
-    $d4 = $_POST['D4'];
-    echo "you've selected", $d4 , "";
+    echo "cool";
 
 //     $d4 = $_POST[''];
 //     $races = $_POST['Races'];
