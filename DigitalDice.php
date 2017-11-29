@@ -13,14 +13,22 @@
     <input type="submit" name="submit" />
     </form> -->
 <form method="post" action="">
-  <input type="radio" name="gender" value="male"> Male<br>
-  <input type="radio" name="gender" value="female"> Female<br>
-  <input type="radio" name="gender" value="other"> Other
+  <input type="radio" name="dicetype" value="D4"> D4<br>
+  <input type="radio" name="dicetype" value="D6"> D6<br>
+  <input type="radio" name="dicetype" value="D10"> D10<br>
+  <input type="radio" name="dicetype" value="D12"> D12<br>
+  <input type="radio" name="dicetype" value="D20"> D20<br> 
     <input type="submit" name="submit" />
 </form>
 <?php
 if(isset($_POST['submit'])) {
-    echo "cool";
+    $type = $_POST['dicetype'];
+    if ($type == "D4") $value = rand(1,4);
+    if ($type == "D6") $value = rand(1,6);
+    if ($type == "D10") $value = rand(1,10);
+    if ($type == "D12") $value = rand(1,12);
+    if ($type == "D20") $value = rand(1,20);
+    echo "You rolled a " , $type , " with a value of : " , $value , "";
 
 //     $d4 = $_POST[''];
 //     $races = $_POST['Races'];
