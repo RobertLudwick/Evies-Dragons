@@ -39,6 +39,9 @@ $result = $mysqli->query("SELECT * FROM players;")
 <TH>Skills</TH>
 </TR>
 <?php
+
+
+
 $array = array('char_id', 'char_name', 'player_name', 'gender', 'race', 'variant', 'class', 'background', 'speed', 'Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma', 'HP','hitdie', 'Clevel', 'Proficiency', 'Skills');
 while($row = $result->fetch_array()) {
     echo "<TR>";

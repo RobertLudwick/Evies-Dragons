@@ -110,6 +110,31 @@ if(isset($_POST['submit'])) {
     $wisdom = $_POST['Wisdom'];
     $charisma = $_POST['Charisma'];
     
+    $stats =  $mysqli->query("SELECT Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma FROM races WHERE race_name = '$races';")
+	    		or trigger_error($db->error);
+	    		
+	    		
+	$stats1 =  $mysqli->query("SELECT Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma FROM variants WHERE variant_name = '$variants';")
+	    		or trigger_error($db->error);
+	    		
+	 while($row = $stats->fetch_array()) {
+		$strength = $strength + $row[0];
+    	$dexterity =$dexterity + $row[1];
+    	$constitution = $constitution + $row[2];
+    	$intelligence = $intelligence + $row[3];
+    	$wisdom = $wisdom + $row[4];
+    	$charisma = $charisma + $row[5];
+	}
+	
+	while($row = $stats1->fetch_array()) {
+		$strength = $strength + $row[0];
+    	$dexterity =$dexterity + $row[1];
+    	$constitution = $constitution + $row[2];
+    	$intelligence = $intelligence + $row[3];
+    	$wisdom = $wisdom + $row[4];
+    	$charisma = $charisma + $row[5];
+	}
+    
     $id = $mysqli->query("SELECT COUNT(*) FROM players;")
 	    		or trigger_error($db->error);
     
