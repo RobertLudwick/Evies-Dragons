@@ -43,7 +43,7 @@ h1 {
 <div>
 </div>
 <div class='myDiv'>
-    <a href = "ViewCharacters.php"<button class ="button button1"style='margin-right:500px'>View Existing Characters</button></a>
+    <a href = "ViewCharacters2.php"<button class ="button button1"style='margin-right:500px'>View Existing Characters</button></a>
     <a href="Webview_Bobby.php"<button class ="button button1">Create New Character</button></a>
 </div>
 <center><img src = "dragon.jpg" alt = "dragon"
