@@ -54,7 +54,7 @@
 		<option value="">Class</option>
 	    <?php
 			//$result = $mysqli->query("SELECT class_name FROM class;")
-			$result = $mysqli->query("SELECT class_name FROM levels;")
+			$result = $mysqli->query("SELECT class_name FROM levels WHERE Level = 1;")
 	    		or trigger_error($db->error);
 	    	while($row = $result->fetch_array()) {
  		 		echo "<option value='".$row[0]."'>'".$row[0]."'</option>";
@@ -116,7 +116,11 @@ if(isset($_POST['submit'])) {
 	    		
 	$stats1 =  $mysqli->query("SELECT Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma FROM variants WHERE variant_name = '$variants';")
 	    		or trigger_error($db->error);
+	
+	$Health = $mysqli->query("SELECT HP, hitdie FROM classes WHERE class_name = '$classes';")
+	    		or trigger_error($db->error);
 	    		
+			
 	 while($row = $stats->fetch_array()) {
 		$strength = $strength + $row[0];
     	$dexterity =$dexterity + $row[1];
@@ -134,6 +138,12 @@ if(isset($_POST['submit'])) {
     	$wisdom = $wisdom + $row[4];
     	$charisma = $charisma + $row[5];
 	}
+	$Con_Mod = round(($constitution - 10)/2, 0, PHP_ROUND_HALF_DOWN);
+	
+	while($row = $Health->fetch_array()) {
+		$HP = $row[0] + $Con_Mod;
+		$hitdie = $row[1];
+	}
     
     $id = $mysqli->query("SELECT COUNT(*) FROM players;")
 	    		or trigger_error($db->error);
@@ -143,7 +153,7 @@ if(isset($_POST['submit'])) {
 		$result = $row[0];
 	}
     
-    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', 8, '1d8', 1, 1, 'somewhat skilled');")
+    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, $hitdie, 1, 1, 'somewhat skilled');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
