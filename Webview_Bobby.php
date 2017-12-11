@@ -119,7 +119,9 @@ if(isset($_POST['submit'])) {
 	
 	$Health = $mysqli->query("SELECT HP, hitdie FROM classes WHERE class_name = '$classes';")
 	    		or trigger_error($db->error);
-	    		
+	
+	$skills =  $mysqli->query("SELECT Skills FROM races WHERE race_name = '$races';")
+	    		or trigger_error($db->error);
 			
 	 while($row = $stats->fetch_array()) {
 		$strength = $strength + $row[0];
@@ -138,6 +140,12 @@ if(isset($_POST['submit'])) {
     	$wisdom = $wisdom + $row[4];
     	$charisma = $charisma + $row[5];
 	}
+	
+	while($row = $skills->fetch_array()) {
+		$skill = $row[0];
+	}
+	
+	
 	$Con_Mod = round(($constitution - 10)/2, 0, PHP_ROUND_HALF_DOWN);
 	
 	while($row = $Health->fetch_array()) {
@@ -153,7 +161,8 @@ if(isset($_POST['submit'])) {
 		$result = $row[0];
 	}
     
-    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, $hitdie, 1, 1, 'somewhat skilled');")
+    
+    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, '$hitdie', 1, 1, '$skill');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
