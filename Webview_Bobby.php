@@ -136,6 +136,7 @@ body {
     <p>Wisdom <input type="number" name="Wisdom" onchange="myFunction(name)" value="8"/></p>
     <p>Charisma <input type="number" name="Charisma" onchange="myFunction(name)" value="8"/></p>
     <div align="center"><p>Available<input type="number" name="Sum" value="27"/></p></div>
+  	<input type="submit" name="submit" />  
   </form>
   
 	<script type="application/javascript">

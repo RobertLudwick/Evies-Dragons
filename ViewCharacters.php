@@ -71,12 +71,6 @@ while($row = $result->fetch_array()) {
         <TH>Variant</TH>
         <TH>Size</TH>
         <TH>Speed</TH>
-        <TH>Strength</TH>
-        <TH>Dexterity</TH>
-        <TH>Constitution</TH>
-        <TH>Intelligence</TH>
-        <TH>Wisdom</TH>
-        <TH>Charisma</TH>
         <TH>Proficiencies</TH>
         <TH>Skills</TH>
         <TH>Languages</TH>
@@ -86,7 +80,7 @@ while($row = $result->fetch_array()) {
     <?php
     $result2 = $mysqli->query("SELECT * FROM races WHERE race_name = '" . $race . "';")
     or trigger_error($db->error);
-    $array2 = array('race_name', 'variant', 'size', 'speed', 'Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma', 'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
+    $array2 = array('race_name', 'variant', 'size', 'speed',  'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
     while($row2 = $result2->fetch_array()) {
         echo "<TR>";
         foreach ($array2 as $field2) {
@@ -125,12 +119,6 @@ while($row = $result->fetch_array()) {
     <TR>
         <TH>Race Name</TH>
         <TH>Variant Name</TH>
-        <TH>Strength</TH>
-        <TH>Dexterity</TH>
-        <TH>Constitution</TH>
-        <TH>Intelligence</TH>
-        <TH>Wisdom</TH>
-        <TH>Charisma</TH>
         <TH>Proficiencies</TH>
         <TH>Skills</TH>
         <TH>Languages</TH>
@@ -141,7 +129,7 @@ while($row = $result->fetch_array()) {
 
     $result4 = $mysqli->query("SELECT * FROM variants WHERE variant_name = '" . $variant . "';")
     or trigger_error($db->error);
-    $array4 = array('race_name', 'variant_name', 'Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma', 'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
+    $array4 = array('race_name', 'variant_name', 'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
     while($row4 = $result4->fetch_array()) {
         echo "<TR>";
         foreach ($array4 as $field4) {
@@ -188,6 +176,21 @@ while($row = $result->fetch_array()) {
 </TABLE>
 
 <a href="Webview_Bobby.php"> Create a Character</a>
+
+<form method="post" action="" name = "myform">
+	<input type="submit" name="submit" value="Level Up" />  
+  </form>
+<?php
+if(isset($_POST['submit'])) {
+	$clevel = $clevel + 1;
+	if ($clevel > 20){
+		$clevel = 20;
+	}
+	$result6 = $mysqli->query("UPDATE players SET Clevel = $clevel WHERE char_name = '$cname2';")
+    or trigger_error($db->error);
+}	
+?>
+
 </body>
 <?php
 $db->close();
