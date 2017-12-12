@@ -67,7 +67,7 @@ body {
 		}
 	?>
   
-  <form method="post" action="">
+  <form method="post" action="" name = "myform">
 	<p>Name	
 	<input type="name" name="something" value="" />
 	</p>
@@ -129,26 +129,118 @@ body {
 		?>
 	</select>
 	</p>
-	<p>Strength	
-	<input type="name" name="Strength" value="" />
-	</p>
-	<p>Dexterity	
-	<input type="name" name="Dexterity" value="" />
-	</p>
-	<p>Constitution	
-	<input type="name" name="Constitution" value="" />
-	</p>
-	<p>Intelligence	
-	<input type="name" name="Intelligence" value="" />
-	</p>
-	<p>Wisdom	
-	<input type="name" name="Wisdom" value="" />
-	</p>
-	<p>Charisma	
-	<input type="name" name="Charisma" value="" />
-	</p>
-    <input type="submit" name="submit" />
+	<p>Strength <input type="number" name="Strength" onchange="myFunction(name)" value="8"/></p>
+    <p>Dexterity <input type="number" name="Dexterity" onchange="myFunction(name)" value="8"/></p>
+    <p>Constitution <input type="number" name="Constitution" onchange="myFunction(name)" value="8"/></p>
+    <p>Intelligence <input type="number" name="Intelligence" onchange="myFunction(name)" value="8"/></p>
+    <p>Wisdom <input type="number" name="Wisdom" onchange="myFunction(name)" value="8"/></p>
+    <p>Charisma <input type="number" name="Charisma" onchange="myFunction(name)" value="8"/></p>
+    <div align="center"><p>Available<input type="number" name="Sum" value="27"/></p></div>
   </form>
+  
+	<script type="application/javascript">
+    var Strength = document.forms['myform']['Strength'];
+    var Dexterity = document.forms['myform']['Dexterity'];
+    var Constitution = document.forms['myform']['Constitution'];
+    var Intelligence = document.forms['myform']['Intelligence'];
+    var Wisdom = document.forms['myform']['Wisdom'];
+    var Charisma = document.forms['myform']['Charisma'];
+	
+	
+	function myFunction(LastUsed) {
+		var sum=27;
+		var extraStr=0;
+		var extraDex=0;
+		var extraCon=0;
+		var extraInt=0;
+		var extraWis=0;
+		var extraCha=0;
+		
+		if(Strength.value >= 15 ) {
+			Strength.value = 15
+		}
+		if(Dexterity.value >= 15 ) {
+			Dexterity.value = 15
+		}
+		if(Constitution.value >= 15 ) {
+			Constitution.value = 15
+		}
+		if(Intelligence.value >= 15 ) {
+			Intelligence.value = 15
+		}
+		if(Wisdom.value >= 15 ) {
+			Wisdom.value = 15
+		}
+		if(Charisma.value >= 15 ) {
+			Charisma.value = 15
+		}
+		
+		if(Strength.value > 8 && Strength.value <= 15) {
+			extraStr = Strength.value-8;
+			if(Strength.value > 13) {
+				extraStr = extraStr + (Strength.value - 13);
+			}
+		}
+		if(Dexterity.value > 8 && Dexterity.value <= 15) {
+			extraDex = Dexterity.value-8;
+			if(Dexterity.value > 13) {
+				extraDex = extraDex + (Dexterity.value - 13);
+			}
+		}
+		if(Constitution.value > 8 && Constitution.value <= 15) {
+			extraCon = Constitution.value-8;
+			if(Constitution.value > 13) {
+				extraCon = extraCon + (Constitution.value - 13);
+			}
+		}
+		if(Intelligence.value > 8 && Inteligence.value <= 15) {
+			extraInt = Inteligence.value-8;
+			if(Intelligence.value > 13) {
+				extraInt = extraInt + (Intelligence.value - 13);
+			}
+		}
+		if(Wisdom.value > 8 && Wisdom.value <= 15) {
+			extraWis = Wisdom.value-8;
+			if(Wisdom.value > 13) {
+				extraWis = extraWis + (Wisdom.value - 13);
+			}
+		}
+		if(Charisma.value > 8 && Charisma.value <= 15) {
+			extraCha = Charisma.value-8;
+			if(Charisma.value > 13) {
+				extraCha = extraCha + (Charisma.value - 13);
+			}
+		}
+		
+		if(Strength.value <= 8 ) {
+			Strength.value = 8
+		}
+		if(Dexterity.value <= 8 ) {
+			Dexterity.value = 8
+		}
+		if(Constitution.value <= 8 ) {
+			Constitution.value = 8
+		}
+		if(Intelligence.value <= 8 ) {
+			Intelligence.value = 8
+		}
+		if(Wisdom.value <= 8 ) {
+			Wisdom.value = 8
+		}
+		if(Charisma.value <= 8 ) {
+			Charisma.value = 8
+		}
+		
+		sum = sum - extraStr - extraDex - extraCon - extraInt - extraWis - extraCha;
+		if(sum < 0){
+			document.forms['myform'][LastUsed].value = document.forms['myform'][LastUsed].value-1;
+			sum = 0;
+		}
+		document.forms['myform']["Sum"].value = sum;
+	}
+	
+    
+</script>
 
 <?php
 if(isset($_POST['submit'])) {
@@ -226,6 +318,7 @@ if(isset($_POST['submit'])) {
 
 
 $db->close();
+ //$result = $mysqli->query("SELECT *, races.languages FROM players INNER JOIN races ON races.race_name = players.race INNER JOIN classes ON classes.class_name = players.class INNER JOIN Levels ON Levels.class_name = players.class WHERE char_name = 'Anduin';")
  ?>
  <a href="#" onclick="window.open('DigitalDice.php', 'newwindow', 'width=300, height=250'); return false;">Click here to roll dice</a>
 
