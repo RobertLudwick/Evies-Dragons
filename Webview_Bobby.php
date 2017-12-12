@@ -217,7 +217,7 @@ if(isset($_POST['submit'])) {
 	}
     
     
-    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', 'back', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, '$hitdie', 1, 1, '$skill');")
+    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', '$backgrounds', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, '$hitdie', 1, 1, '$skill');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
