@@ -31,11 +31,16 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      
+<ul class="nav navbar-nav">
+      <li class="active"><a href="Webview_bobby.php">Create New Character</a></li>
+<ul class="nav navbar-nav">
+      <li class="active"><a href="viewcharacters2.php">View Existing Characters</a></li>
+<ul class="nav navbar-nav">
+      <li class="active"><a href="DigitalDice.php">Roll Dice</a></li>
+
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-      <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <ul class="nav navbar-nav">
+      <li><a href="signin.php"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
     </ul>
   </div>
 </nav>
