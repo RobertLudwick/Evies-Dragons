@@ -11,8 +11,14 @@ $mysqli = new mysqli($sqlHost, $sqlUser, $sqlPass, $dbName);
 if (mysqli_connect_error()) {
     die('Connect Error ('.mysqli_connect_errno().') '.mysqli_connect_error());
 }
+$cname=$_SERVER['QUERY_STRING'];
+//echo $cname;
+$cname2 = str_replace("%20", " ", $cname);
+//echo $cname2;
+//$test = "SELECT * FROM players WHERE char_name = '" . $cname . "';";
+//echo $test;
 // echo 'Connected successfully.';
-$result = $mysqli->query("SELECT * FROM players;")
+$result = $mysqli->query("SELECT * FROM players WHERE char_name = '" . $cname2 . "';")
     or trigger_error($db->error);
 //var_dump($result);?>
 <TABLE>
