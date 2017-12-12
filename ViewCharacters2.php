@@ -89,11 +89,17 @@ $result = $mysqli->query("SELECT char_name  FROM players;")
 $array = array('char_name');
 while($row = $result->fetch_array()) {
     foreach($array as $field) {
-        echo "<button type='button' onclick=''>".$row[$field]."</button>";
+        echo "<input type='submit' onclick='seeCharacter(value)' value='$row[$field]' />";
     }
 }
 
  ?>
+
+<script type="application/javascript">
+    function seeCharacter(value){
+        window.location.href = 'ViewCharacters.php?'+value;
+    }
+</script>
 
 </TABLE>
 <a href="Webview_Bobby.php"> Create a Character</a>
