@@ -11,10 +11,26 @@
 		if (mysqli_connect_error()) {
 		    die('Connect Error ('.mysqli_connect_errno().') '.mysqli_connect_error());
 		}
+	?>
 
-	$username = $_POST['Username'];
-	$email = $_POST['Email'];
-	$password = $_POST['Password'];
+  <form method="post" action="">
+  username:<br>
+  <input type="text" name="username" value="">
+  <br>
+  email<br>
+  <input type="text" name="email" value="">
+  <br>
+  password<br>
+  <input type="password" name="password" value="">
+  <br><br>
+
+    <input type="submit" name="submit" />
+  </form>
+  <?php
+if(isset($_POST['submit'])) {
+	$username = $_POST['username'];
+	$email = $_POST['email'];
+	$password = $_POST['password'];
   $count = 0;
   $query = $mysqli->query("SELECT username FROM user;");
   while($row = $query->fetch_array()) {
@@ -28,6 +44,8 @@
   if ($count == 0) {
     $mysqli->query("INSERT INTO user VALUES ('$username', '$email', '$password')");
   }
+
+}
   ?>
 </body>
 </html>
