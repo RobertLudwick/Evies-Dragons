@@ -27,6 +27,7 @@
   }
   if ($count == 0) {
     $mysqli->query("INSERT INTO user VALUES ('$username', '$email', '$password')");
+    echo "<script>window.top.location='http://localhost:8888/signin.php'</script>";
   }
   ?>
 </body>

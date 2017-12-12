@@ -23,7 +23,8 @@ $query = $mysqli->query("SELECT username, password FROM user WHERE username = '"
     }
   }
   if ($count != 0) {
-    echo "Login successful. Continue to homepage.";
+    echo "<script>window.top.location='http://localhost:8888/home.php'</script>";
+    //echo "Login successful. Continue to homepage.";
   }
   if ($count == 0) {
     echo "Incorrect username and/or password. Try again or register.";

@@ -152,5 +152,6 @@
 
 </script>
 
+<a href="#" onclick="window.open('DigitalDice.php', 'newwindow', 'width=300, height=250'); return false;">Click here to open new window</a>
 </body>
 </html>
