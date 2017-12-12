@@ -53,7 +53,6 @@ body {
       </div>
   </div>
 <!-- Copyright & Credits bar-->
-<
 </div>
 </div>
 	<?php

@@ -41,20 +41,11 @@ body {
     </ul>
   </div>
 </nav>
-  <div class="row">
-    <div class="col-md-9">
-      <div class="panel panel-primary"> 
-         <div class="panel-heading">Welcome!</div>
-         <div class="panel-body">
-            Welcome all new users!
-         </div>
-      </div>
-    </div>
+  
     
       </div>
   </div>
 <!-- Copyright & Credits bar-->
-<
 </div>
 </div>
 	<h1>Created Characters</h1>
