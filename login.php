@@ -21,7 +21,9 @@ $query = $mysqli->query("SELECT username, password FROM user WHERE username = '"
     }
   }
   if ($count != 0) {
-    echo "<script>window.top.location='http://localhost:8888/home.php?" . $username . "'</script>";
+    session_start();
+    $_SESSION['user'] = $username;
+    echo "<script>window.top.location='http://localhost:8888/home.php</script>";
     //echo "Login successful. Continue to homepage.";
   }
   if ($count == 0) {

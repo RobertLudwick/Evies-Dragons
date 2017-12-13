@@ -20,6 +20,7 @@ body {
 
 </head>
 <body>
+<?php include 'home1.php'; ?>
 <div class="container">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -37,7 +38,7 @@ body {
 
     </ul>
     <ul class="nav navbar-nav">
-      <li><a href="signin.php"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+      <li><a href="logout1.php"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
     </ul>
   </div>
 </nav>

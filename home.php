@@ -23,6 +23,7 @@ body {
 </style>
 </head>
 <body>
+<?php include 'home1.php'; ?>
 <div class="container">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -34,13 +35,13 @@ body {
 <ul class="nav navbar-nav">
       <li class="active"><a href="Webview_bobby.php">Create New Character</a></li>
 <ul class="nav navbar-nav">
-      <li class="active"><a href="viewcharacters2.php">View Existing Characters</a></li>
+      <li class="active" name="hallo"><a href="viewcharacters2.php" id="AllChars">View Existing Characters</a></li>
 <ul class="nav navbar-nav">
       <li class="active"><a href="DigitalDice.php">Roll Dice</a></li>
 
     </ul>
     <ul class="nav navbar-nav">
-      <li><a href="signin.php"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+      <li><a href="logout1.php"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
     </ul>
   </div>
 </nav>
@@ -60,5 +61,7 @@ body {
 <
 </div>
 </div>
+<script>
+  document.getElementByClassName('hallo')['AllChars'].href="viewcharacters2.php?dog"</script>
 </body>
 </html>
