@@ -19,6 +19,11 @@ body {
 </style>	
 </head>
 <body>
+<?php
+include 'home1.php';
+//include($_SERVER['DOCUMENT_ROOT']."/includes/login1.php");
+//doit();
+?>
 <div class="container">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -81,7 +86,6 @@ body {
     <p>Races
     <select name="Races">
     	<option value="">Race</option>
-    	<?php
 			$result = $mysqli->query("SELECT race_name FROM races;")
 				or trigger_error($db->error);
 			while($row = $result->fetch_array()) {
