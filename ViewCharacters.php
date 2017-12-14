@@ -68,7 +68,7 @@ echo '<h1>' . $cname2 . '</h1>';
 //$test = "SELECT * FROM players WHERE char_name = '" . $cname . "';";
 //echo $test;
 // echo 'Connected successfully.';
-$result = $mysqli->query("SELECT * FROM players WHERE char_name = '" . $cname2 . "' AND username = '" . $user . "';")
+$result = $mysqli->query("SELECT * FROM players WHERE char_name = '" . $cname2 . "' AND player_name = '" . $user . "';")
     or trigger_error($db->error);
 //var_dump($result);?>
 <TABLE>
@@ -127,7 +127,7 @@ while($row = $result->fetch_array()) {
         <TH>Advantages</TH>
     </TR>
     <?php
-    $result2 = $mysqli->query("SELECT * FROM races WHERE race_name = '" . $race . "'  AND username = '" . $user . "';")
+    $result2 = $mysqli->query("SELECT * FROM races WHERE race_name = '" . $race . "';")
     or trigger_error($db->error);
     $array2 = array('race_name', 'variant', 'size', 'speed',  'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
     while($row2 = $result2->fetch_array()) {
@@ -151,7 +151,7 @@ while($row = $result->fetch_array()) {
         <TH>Equipment</TH>
     </TR>
     <?php
-    $result3 = $mysqli->query("SELECT * FROM classes WHERE class_name = '" . $class . "'  AND username = '" . $user . "';")
+    $result3 = $mysqli->query("SELECT * FROM classes WHERE class_name = '" . $class . "';")
     or trigger_error($db->error);
     $array3 = array('class_name', 'HP', 'hitdie', 'Proficiencies', 'choose_skills', 'Skills', 'Equipment');
     while($row3 = $result3->fetch_array()) {
@@ -176,7 +176,7 @@ while($row = $result->fetch_array()) {
     </TR>
     <?php
 
-    $result4 = $mysqli->query("SELECT * FROM variants WHERE variant_name = '" . $variant . "' '  AND username = '" . $user . "';")
+    $result4 = $mysqli->query("SELECT * FROM variants WHERE variant_name = '" . $variant . "';")
     or trigger_error($db->error);
     $array4 = array('race_name', 'variant_name', 'Proficiencies', 'Skills', 'languages', 'resistances', 'advantages');
     while($row4 = $result4->fetch_array()) {
@@ -211,7 +211,7 @@ while($row = $result->fetch_array()) {
         <TH>Bonus Damage</TH>
     </TR>
     <?php
-    $result5 = $mysqli->query("SELECT * FROM levels WHERE class_name = '" . $class . "' AND level = '" . $clevel . "'  AND username = '" . $user . "';")
+    $result5 = $mysqli->query("SELECT * FROM levels WHERE class_name = '" . $class . "' AND level = '" . $clevel . "';")
     or trigger_error($db->error);
     $array5 = array('class_name', 'Level', 'Prof_bonus', 'Bonus', 'Bonus_points', 'Features', 'Cantrips', 'Spells', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '9th', 'bonus_damage');
     while($row5 = $result5->fetch_array()) {
