@@ -47,6 +47,7 @@ body {
 </div>
 	<h1>Created Characters</h1>
 <?php
+$user=$_SESSION['use'];
 $sqlHost = 'localhost';
 $sqlUser = 'root';
 $sqlPass = 'root';
@@ -61,7 +62,7 @@ if (mysqli_connect_error()) {
 
 <?php
 // echo 'Connected successfully.';
-$result = $mysqli->query("SELECT char_name  FROM players;")
+$result = $mysqli->query("SELECT char_name  FROM players WHERE player_name = '" . $user . "';")
     or trigger_error($db->error);
 //var_dump($result);?>
 <!-- 
