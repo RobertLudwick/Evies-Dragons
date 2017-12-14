@@ -86,6 +86,7 @@ include 'home1.php';
     <p>Races
     <select name="Races">
     	<option value="">Race</option>
+			<?php
 			$result = $mysqli->query("SELECT race_name FROM races;")
 				or trigger_error($db->error);
 			while($row = $result->fetch_array()) {
@@ -261,6 +262,7 @@ if(isset($_POST['submit'])) {
     $intelligence = $_POST['Intelligence'];
     $wisdom = $_POST['Wisdom'];
     $charisma = $_POST['Charisma'];
+    $user = $_SESSION['use'];
     
     $stats =  $mysqli->query("SELECT Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma FROM races WHERE race_name = '$races';")
 	    		or trigger_error($db->error);
@@ -314,7 +316,7 @@ if(isset($_POST['submit'])) {
 	}
     
     
-    $mysqli->query("INSERT INTO players VALUES ($result, '$name', 'Bobby', '$gender', '$races', '$variants', '$classes', '$backgrounds', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, '$hitdie', 1, 1, '$skill');")
+    $mysqli->query("INSERT INTO players VALUES ($result, '$name', '$user', '$gender', '$races', '$variants', '$classes', '$backgrounds', 30, '$strength', '$dexterity', '$constitution', '$intelligence', '$wisdom', '$charisma', $HP, '$hitdie', 1, 1, '$skill');")
 	    		or trigger_error($db->error);
     
     //$mysqli->query("INSERT INTO players VALUES (500, $name, 'Bobby', 'Female', $races, $variants, 'Paladin', 'back', $strength, $dexterity, $constitution, $intelligence, $wisdom, $charisma, 11, 120, '2d8+7', 17, 4, ' somewhat skilled');") or trigger_error($db->error);
