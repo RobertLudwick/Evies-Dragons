@@ -235,7 +235,7 @@ if(isset($_POST['submit'])) {
 	if ($clevel > 20){
 		$clevel = 20;
 	}
-	$result6 = $mysqli->query("UPDATE players SET Clevel = $clevel WHERE char_name = '$cname2'  AND username = '" . $user . "';")
+	$result6 = $mysqli->query("UPDATE players SET Clevel = $clevel WHERE char_name = '$cname2'  AND username = '$user';")
     or trigger_error($db->error);
 }	
 ?>
